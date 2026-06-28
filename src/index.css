@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-surface-base: var(--bg-base);
+  --color-surface-card: var(--bg-card);
+  --color-content: var(--text-base);
+  --color-content-muted: var(--text-muted);
+}
+
+:root {
+  --main-color: #0aad0a;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+  --font-family: 'Encode Sans Expanded', sans-serif;
+  --rating-color: #ffc908;
+  --test-color: red;
+
+  --bg-base: #f9fafb;
+  --bg-card: #ffffff;
+  --text-base: #111827;
+  --text-muted: #6b7280;
+}
+
+:root.dark, .dark {
+  --bg-base: #0f172a;
+  --bg-card: #1e293b;
+  --text-base: #f8fafc;
+  --text-muted: #94a3b8;
+  --light-color: #1e293b; 
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface-base);
+    color: var(--color-content);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  color: var(--main-color);
+}
+.rating-color {
+  color: var(--rating-color);
+}
+
+.product:hover {
+  box-shadow: var(--shadow);
+}
+
+.product .btn {
+  transition: transform 1s, opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.product:hover .btn {
+  opacity: 1;
+  transform: translateY(0%);
+
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-main {
+  color: var(--main-color);
+}
+
+.text-main-light {
+  color: var(--light-color);
+}
+
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.active{
+  color: var(--main-color);
+
+}
